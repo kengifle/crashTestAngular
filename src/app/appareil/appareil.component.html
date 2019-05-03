@@ -1,0 +1,17 @@
+<li [ngClass]="{'list-group-item': true,
+          'list-group-item-success': appareilStatus === 'complètement allumé',
+          'list-group-item-danger': appareilStatus === 'non allumé'}">
+  <!-- <div style="width: 20px; height: 20px; background-color:pink;"
+  *ngIf="appareilStatus==='non allumé'"></div> -->
+  <h4 [ngStyle]="{color: getColor()}" > Appareil : {{appareilName}} -- Etat : {{getStatusNow()}}</h4>
+  <input type="text" class= "form-control" [(ngModel)]="appareilName">
+  <button class="btn btnsm btn-succes"
+  *ngIf="appareilStatus === 'non allumé'"
+  (click)="onSwitch()">Ignition</button>
+  <button class="btn btnsm btn-warning"
+  *ngIf="appareilStatus === 'complètement allumé'"
+  (click)="onSwitch()">Finition</button>
+
+
+</li>
+

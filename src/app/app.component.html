@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>Mes appareils</h2>
+      <p>Dernière mise à jour : {{lastUpdate |async | date : 'medium' | uppercase}}</p>
+      <ul class="list-group">
+        <app-appareil *ngFor="let appareil of appareils; let i = index"
+        [appareilName]="appareil.name"
+        [appareilStatus]="appareil.status"
+        [index]="i">
+        </app-appareil>
+
+
+
+      </ul>
+      <button class="btn btn-success"
+      [disabled]="!clearance"
+      (click)="onAllumer()">allumer le feu</button>
+      <button class="btn btn-warning"
+      [disabled]="!clearance"
+      (click)="onEteindre()">éteins la lumière</button>
+    </div>
+  </div>
+</div>
